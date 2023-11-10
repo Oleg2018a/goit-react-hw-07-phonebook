@@ -1,7 +1,8 @@
 import React from 'react'
 import { DeleteButton, Wrapper } from './Contactitem.styled';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/operation';
+
 
 
 const ContactItem = ({item}) => {
@@ -12,7 +13,7 @@ const ContactItem = ({item}) => {
   };
   return (
     <Wrapper>
-      <p> {`${item.name} : ${item.number}`}</p>
+      <p> {`${item.name} : ${item.phone}`}</p>
 
       <DeleteButton onClick={handleDeleteContact} type="click">
         delete

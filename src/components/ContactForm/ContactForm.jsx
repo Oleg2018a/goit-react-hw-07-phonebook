@@ -5,7 +5,7 @@ import { Formik,   ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import { StylefForm , Label, StyleField, ButtonSubmit} from './ContactForm.styled';
-import { addContact } from 'redux/contactsSlice';
+import { addContacts } from 'redux/operation'; 
 
 
 
@@ -45,7 +45,7 @@ const ContactForm = () => {
       number: values.number,
     };
 
-    dispatch(addContact(newContact));
+    dispatch(addContacts(newContact));
     actions.resetForm();
   };
 
