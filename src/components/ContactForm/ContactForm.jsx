@@ -12,7 +12,7 @@ import { addContacts } from 'redux/operation';
 
 const initialValues = {
   name: '',
-  number: '',
+  phone: '',
 };
 
 const SignupSchema = Yup.object().shape({
@@ -20,7 +20,7 @@ const SignupSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(15, 'Too Long!')
     .required('Required'),
-  number: Yup.string().min(2, 'Too Short!').required('Required'),
+  phone: Yup.string().min(2, 'Too Short!').required('Required'),
 });
 
 const formNameId = nanoid();
@@ -42,7 +42,7 @@ const ContactForm = () => {
     const newContact = {
       id: nanoid(),
       name: values.name,
-      number: values.number,
+      phone: values.phone,
     };
 
     dispatch(addContacts(newContact));
@@ -59,9 +59,9 @@ const ContactForm = () => {
         <Label htmlFor={formNameId}>Name</Label>
         <StyleField id={formNameId} name="name" placeholder="Jack" />
         <ErrorMessage name="name" component="div" />
-        <Label htmlFor={formNumberId}>Number</Label>
-        <StyleField id={formNumberId} name="number" placeholder="431-21-22" />
-        <ErrorMessage name="number" component="div" />
+        <Label htmlFor={formNumberId}>Phone</Label>
+        <StyleField id={formNumberId} name="phone" placeholder="431-21-22" />
+        <ErrorMessage name="phone" component="div" />
         <ButtonSubmit type="submit">Submit</ButtonSubmit>
       </StylefForm>
     </Formik>
